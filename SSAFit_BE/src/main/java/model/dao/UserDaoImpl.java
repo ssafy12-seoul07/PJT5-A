@@ -1,3 +1,4 @@
+
 package model.dao;
 
 import java.sql.Connection;
@@ -80,7 +81,7 @@ public class UserDaoImpl implements UserDao {
 
 	@Override
 	public void registerUser(UserDto user) {
-		String sql = "INSERT INTO user () VALUES (?, ?, ?, ?, ?, ?)";
+		String sql = "INSERT INTO user(id, password, name, email, status) VALUES (?, ?, ?, ?, ?)";
 		Connection conn = null;
 		PreparedStatement pstmt = null;
 
@@ -88,13 +89,11 @@ public class UserDaoImpl implements UserDao {
 			conn = util.getConnection();
 			pstmt = conn.prepareStatement(sql);
 
-			pstmt.setInt(0, user.getUserId());
 			pstmt.setString(1, user.getId());
 			pstmt.setString(2, user.getPassword());
 			pstmt.setString(3, user.getName());
 			pstmt.setString(4, user.getEmail());
 			pstmt.setInt(5, user.getStatus());
-			pstmt.setString(6, user.getCreatedAt());
 
 			pstmt.executeUpdate();
 

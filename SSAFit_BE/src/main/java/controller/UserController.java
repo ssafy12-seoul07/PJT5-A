@@ -15,7 +15,7 @@ import model.service.UserServiceImpl;
 public class UserController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	private UserService service = UserServiceImpl.getInstance();
-	private final String prefix = "/WEB-INF/user";
+	private final String prefix = "/WEB-INF/user/";
 
 	@Override
 	protected void service(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException {

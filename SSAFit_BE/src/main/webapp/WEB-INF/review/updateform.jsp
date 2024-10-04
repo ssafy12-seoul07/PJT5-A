@@ -1,12 +1,15 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
-<!DOCTYPE html>
+<%@ taglib uri="jakarta.tags.core" prefix="c" %>
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
-<meta charset="UTF-8">
-<title>Insert title here</title>
+    <title>Edit Review</title>
 </head>
 <body>
-
+<h1>Edit Review</h1>
+<form action="review?action=update" method="post">
+    <input type="hidden" name="reviewId" value="${review.reviewId}"/>
+    <textarea name="content">${review.content}</textarea><br/>
+    <input type="submit" value="Save"/>
+</form>
 </body>
 </html>

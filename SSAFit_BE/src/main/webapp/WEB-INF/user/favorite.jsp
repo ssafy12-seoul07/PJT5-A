@@ -1,12 +1,13 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
-<!DOCTYPE html>
+<%@ taglib uri="jakarta.tags.core" prefix="c" %>
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
-<meta charset="UTF-8">
-<title>Insert title here</title>
+    <title>Your Favorite Videos</title>
 </head>
 <body>
-
+<h1>Favorite Videos</h1>
+<c:forEach var="favorite" items="${favoriteList}">
+    <p>Video ID: ${favorite.videoId}</p>
+</c:forEach>
 </body>
 </html>
