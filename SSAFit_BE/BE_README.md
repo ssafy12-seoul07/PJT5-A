@@ -22,18 +22,26 @@
         │   │       │   ├──  ReviewDto.java
         │   │       │   ├──  UserDto.java
         │   │       │   └──  VideoDto.java
-        │   │       └──  service
-        │   │           ├──  ReviewService.java
-        │   │           ├──  ReviewServiceImpl.java
-        │   │           ├──  UserService.java
-        │   │           ├──  UserServiceImpl.java
-        │   │           ├──  VideoService.java
-        │   │           └──  VideoServiceImpl.java
+        │   │       ├──  service
+        │   │       │   ├──  ReviewService.java
+        │   │       │   ├──  ReviewServiceImpl.java
+        │   │       │   ├──  UserService.java
+        │   │       │   ├──  UserServiceImpl.java
+        │   │       │   ├──  VideoService.java
+        │   │       │   └──  VideoServiceImpl.java
+        │   │       └──  util
+        │   │           └──  DBUtil.java
+        │   ├──  resources
+        │   │   └──  script.sql
         │   └──  webapp
         │       ├──  index.jsp
         │       ├──  META-INF
         │       │   └──  MANIFEST.MF
         │       └──  WEB-INF
+        │           ├──  lib
+        │           │   ├──  jakarta.servlet.jsp.jstl-3.0.1.jar
+        │           │   ├──  jakarta.servlet.jsp.jstl-api-3.0.0.jar
+        │           │   └──  mysql-connector-j-8.0.33.jar
         │           ├──  review
         │           │   ├──  detail.jsp
         │           │   ├──  review_item.jsp
