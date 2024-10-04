@@ -56,12 +56,22 @@ WHERE v.videoId IN (
 );
 
 -- 9. review 테이블에 (video_id, user_id, content)을 추가한다.
+INSERT INTO review (video_id, user_id, content) VALUES (video_id, user_id, content);
 
 -- 10. review 테이블에 (video_id, user_id, content, parent)을 추가한다.
+INSERT INTO review (video_id, user_id, content, parent) VALUES (video_id, user_id, content, parent);
 
 -- 11. favorite 테이블에 (user_id, video_id)를 추가한다.
+INSERT INTO favorite (user_id, video_id) VALUES (user_id, video_id);
 
--- 12. 
+-- 12. review 테이블에 특정 user_id와 review_id인 행의 content를 업데이트한다.
+UPDATE review SET content = content WHERE user_id=user_id AND review_id=review_id;
+ 
+-- 13. review 테이블에 특정 user_id와 review_id인 행을 삭제한다.
+DELETE FROM review WHERE user_id=uwer_id AND review_id=review_id;
+
+-- 14. favorite 테이블에 특정 user_id와 video_id인 행을 삭제한다.
+DELETE FROM favorite WHERE user_id=user_id AND video_id=video_id;
 
 
 
