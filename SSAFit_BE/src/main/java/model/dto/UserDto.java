@@ -13,6 +13,7 @@ public class UserDto {
 	}
 
 	public UserDto(int userId, String id, String password, String name, String email, int status, String createdAt) {
+		super();
 		this.userId = userId;
 		this.id = id;
 		this.password = password;

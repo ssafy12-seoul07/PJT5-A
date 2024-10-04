@@ -12,6 +12,7 @@ public class VideoDto {
 
 	public VideoDto(String videoId, String title, String part, String channelName, String url, String thumbnail,
 			int views, int status) {
+		super();
 		this.videoId = videoId;
 		this.title = title;
 		this.part = part;
