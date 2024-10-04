@@ -1,5 +1,10 @@
 package model.dao;
 
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.List;
 
 import model.dto.UserDto;
@@ -10,7 +15,6 @@ public class UserDaoImpl implements UserDao {
 	private static UserDao dao = new UserDaoImpl();
 
 	private UserDaoImpl() {
-
 	}
 
 	public static UserDao getInstance() {
@@ -19,31 +23,129 @@ public class UserDaoImpl implements UserDao {
 
 	@Override
 	public List<UserDto> selectAll() {
-		// TODO Auto-generated method stub
-		return null;
+		List<UserDto> list = new ArrayList<>();
+		String sql = "SELECT * FROM user";
+		Connection conn = null;
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+
+		try {
+			conn = util.getConnection();
+			pstmt = conn.prepareStatement(sql);
+			rs = pstmt.executeQuery();
+
+			while (rs.next()) {
+				UserDto user = new UserDto();
+				user.setUserId(0);
+				user.setId(sql);
+				user.setPassword(sql);
+				user.setName(sql);
+				user.setEmail(sql);
+				user.setStatus(0);
+				user.setCreatedAt(sql);
+
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			util.close(rs, pstmt, conn);
+		}
+
+		return list;
 	}
 
 	@Override
 	public UserDto selectOne(int id) {
-		// TODO Auto-generated method stub
-		return null;
+		String sql = "SELECT * FROM user WHERE id=?";
+		UserDto user = null;
+		Connection conn = null;
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+
+		try {
+			conn = util.getConnection();
+			pstmt = conn.prepareStatement(sql);
+			rs = pstmt.executeQuery();
+			pstmt.setInt(1, id);
+			rs = pstmt.executeQuery();
+			user = new UserDto();
+
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			util.close(rs, pstmt, conn);
+		}
+		return user;
 	}
 
 	@Override
-	public void insertUser(UserDto user) {
-		// TODO Auto-generated method stub
+	public void registerUser(UserDto user) {
+		String sql = "INSERT INTO user () VALUES (?, ?, ?, ?, ?, ?)";
+		Connection conn = null;
+		PreparedStatement pstmt = null;
 
+		try {
+			conn = util.getConnection();
+			pstmt = conn.prepareStatement(sql);
+
+			pstmt.setInt(0, user.getUserId());
+			pstmt.setString(1, user.getId());
+			pstmt.setString(2, user.getPassword());
+			pstmt.setString(3, user.getName());
+			pstmt.setString(4, user.getEmail());
+			pstmt.setInt(5, user.getStatus());
+			pstmt.setString(6, user.getCreatedAt());
+
+			pstmt.executeUpdate();
+
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			util.close(pstmt, conn);
+		}
 	}
 
-	@Override
 	public void updateUser(UserDto user) {
-		// TODO Auto-generated method stub
+		String sql = "UPDATE user SET password=?, name=?, email=?, status=? WHERE id=?";
+		Connection conn = null;
+		PreparedStatement pstmt = null;
 
+		try {
+			conn = util.getConnection();
+			pstmt = conn.prepareStatement(sql);
+
+			pstmt.setString(2, user.getPassword());
+			pstmt.setString(3, user.getName());
+			pstmt.setString(4, user.getEmail());
+			pstmt.setInt(5, user.getStatus());
+
+			pstmt.executeUpdate();
+
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			util.close(pstmt, conn);
+		}
 	}
 
 	@Override
 	public void deleteUser(int id) {
-		// TODO Auto-generated method stub
+		String sql = "DELETE FROM user WHERE id = ?";
+		Connection conn = null;
+		PreparedStatement pstmt = null;
 
+		try {
+			conn = util.getConnection();
+			pstmt = conn.prepareStatement(sql);
+
+			pstmt.setInt(1, id);
+
+			pstmt.executeUpdate();
+
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			util.close(pstmt, conn);
+		}
 	}
 }

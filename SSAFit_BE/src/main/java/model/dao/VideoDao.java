@@ -9,10 +9,6 @@ public interface VideoDao {
 
 	public VideoDto selectOne(int id);
 
-	public void insertVideo(VideoDto video);
-
-	public void updateVideo(VideoDto video);
-
-	public void deleteVideo(int id);
+	public void updateViews(int id);
 
 }

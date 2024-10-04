@@ -23,6 +23,9 @@ public class VideoDto {
 		this.status = status;
 	}
 
+	public VideoDto() {
+	}
+
 	public String getVideoId() {
 		return videoId;
 	}

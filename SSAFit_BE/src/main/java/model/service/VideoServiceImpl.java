@@ -13,38 +13,34 @@ public class VideoServiceImpl implements VideoService {
 	private VideoServiceImpl() {
 	}
 
-	private static VideoService getInstance() {
+	public static VideoService getInstance() {
 		return service;
 	}
 
 	@Override
 	public List<VideoDto> getList() {
-		// TODO Auto-generated method stub
-		return null;
+		return dao.selectAll();
 	}
 
 	@Override
 	public VideoDto getVideo(int id) {
-		// TODO Auto-generated method stub
-		return null;
+		dao.updateViews(id);
+		return dao.selectOne(id);
 	}
 
-	@Override
-	public void writeVideo(VideoDto video) {
-		// TODO Auto-generated method stub
-
-	}
-
-	@Override
-	public void modifyVideo(VideoDto video) {
-		// TODO Auto-generated method stub
-
-	}
-
-	@Override
-	public void removeVideo(int id) {
-		// TODO Auto-generated method stub
-
-	}
+//	@Override
+//	public void writeVideo(VideoDto video) {
+//		// TODO Auto-generated method stub
+//	}
+//
+//	@Override
+//	public void modifyVideo(VideoDto video) {
+//		// TODO Auto-generated method stub
+//	}
+//
+//	@Override
+//	public void removeVideo(int id) {
+//		// TODO Auto-generated method stub
+//	}
 
 }

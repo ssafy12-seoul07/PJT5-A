@@ -9,7 +9,7 @@ public interface UserDao {
 
 	public UserDto selectOne(int id);
 
-	public void insertUser(UserDto user);
+	public void registerUser(UserDto user);
 
 	public void updateUser(UserDto user);
 

@@ -10,7 +10,7 @@ public interface UserService {
 
 	public abstract UserDto getUser(int id);
 
-	public abstract void writeUser(UserDto user);
+	public abstract void registerUser(UserDto user);
 
 	public abstract void modifyUser(UserDto user);
 

@@ -10,10 +10,10 @@ public interface VideoService {
 
 	public abstract VideoDto getVideo(int id);
 
-	public abstract void writeVideo(VideoDto video);
-
-	public abstract void modifyVideo(VideoDto video);
-
-	public abstract void removeVideo(int id);
+//	public abstract void writeVideo(VideoDto video);
+//
+//	public abstract void modifyVideo(VideoDto video);
+//
+//	public abstract void removeVideo(int id);
 
 }
